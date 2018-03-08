@@ -9,7 +9,7 @@ public class GameController {
 
 
     @GetMapping("/")
-    public void index(){
+    public String index(){
 
         return "index";
 
