@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:td="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="Stylesheet.css" />
+    <title>Tic Tac Toe</title>
 
-    <title>Title</title>
 </head>
 <body>
+<table>
+
+    <tr th:each=" tableRow: ${tableRows}">
+        <td th:each="tableCell: ${tableRow.row}">
+            <span th:if="${tableCell.hasValue()}" th:text="${tableCell.cellValue}">v</span>
+            <a th:href="@{'/move?rowId=' + ${tableCell.id}">l</a>
+        </td>
+    </tr>
+</table>
+
+
+
+
 
 </body>
 </html>
