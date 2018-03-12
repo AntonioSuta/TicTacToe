@@ -11,7 +11,7 @@
     <tr th:each=" tableRow: ${tableRows}">
         <td th:each="tableCell: ${tableRow.row}">
             <span th:if="${tableCell.hasValue()}" th:text="${tableCell.cellValue}">v</span>
-            <a th:href="@{'/move?rowId=' + ${tableCell.id}">l</a>
+            <a th:unless="${tableCell.hasValue()}" th:href="@{/move(columnId=${tableCell.id},rowId=${tableRow.getId()})}">l</a>
         </td>
     </tr>
 </table>
