@@ -5,15 +5,11 @@
 
 </head>
 <body>
-<table>
-
-    <tr th:each=" tableRow: ${tableRows}">
-        <td th:each="tableCell: ${tableRow.getRow()}">
-            <span th:if="${tableCell.hasValue()}" th:text="${tableCell.getCellValue()}">v</span>
-            <a th:unless="${tableCell.hasValue()}" th:href="@{/move(columnId=${tableCell.getId()},rowId=${tableRow.getId()})}">l</a>
-        </td>
-    </tr>
-</table>
+<form action="/signup" method="post">
+    <input type="text" placeholder="username" name="username">
+    <input type="password" placeholder="password" name="password">
+    <input type="submit" value="Create user">
+</form>
 
 </body>
 </html>

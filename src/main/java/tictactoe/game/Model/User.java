@@ -2,14 +2,22 @@ package tictactoe.game.Model;
 
 public class User {
 
-
+    int id = 0;
     String username;
     String password;
-    int wins;
-    int losses;
-    int ties;
+    int wins = 0;
+    int losses= 0;
+    int ties= 0;
 
-    public User(String username, String password, int wins, int losses, int ties) {
+    public User(){}
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(int id, String username, String password, int wins, int losses, int ties) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.wins = wins;
@@ -55,5 +63,13 @@ public class User {
 
     public void setTies(int ties) {
         this.ties = ties;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
