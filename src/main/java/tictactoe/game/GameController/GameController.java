@@ -25,6 +25,20 @@ public class GameController {
     }
 
     @GetMapping("/")
+    public String login(Model model){
+        return "login";
+    }
+
+    @PostMapping("/")
+    public String login(@ModelAttribute TableArrayListRepository table) {
+        System.out.println(table);
+        System.out.println(tableRepository);
+        return "redirect:/play";
+
+    }
+
+
+    @GetMapping("/play")
     public String index(Model model){
 
 
