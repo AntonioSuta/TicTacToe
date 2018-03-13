@@ -3,6 +3,7 @@ package tictactoe.game.GameController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,16 +69,20 @@ public class GameController {
 
 
     @GetMapping("/play")
-    public String index(Model model) {
+    public String index(ModelMap model )     {
 
         if(!message.isEmpty()){
             return "redirect:/message";
         }
+
+        model.addAttribute("user",currentUser);
         model.addAttribute("tableRows", tableRepository.readAll());
+
         return "index";
 
 
     }
+
 
     @GetMapping("/message")
     public String message(Model model){
@@ -90,6 +95,7 @@ public class GameController {
         message = "";
         return "redirect:/play";
     }
+
 
 
     @GetMapping("/move")

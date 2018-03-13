@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:td="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:td="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" href="Stylesheet.css" />
     <title>Tic Tac Toe</title>
 
 </head>
 <body>
+
+
+
+
 <table>
 
     <tr th:each=" tableRow: ${tableRows}">
         <td th:each="tableCell: ${tableRow.getRow()}">
             <span th:if="${tableCell.hasValue()}" th:text="${tableCell.getCellValue()}">v</span>
-            <a th:unless="${tableCell.hasValue()}" th:href="@{/move(columnId=${tableCell.getId()},rowId=${tableRow.getId()})}">l</a>
+            <a class = "tableButton" th:unless="${tableCell.hasValue()}" th:href="@{/move(columnId=${tableCell.getId()},rowId=${tableRow.getId()})}">l</a>
+
+
         </td>
     </tr>
 </table>
 
+<p class="wins0">Wins : </p>
+<p class="losses0">Losses : </p>
+<p class="ties0">Ties : </p>
+<p class = "wins"  th:text="${user.getWins()}" > </p>
+<p class = "losses"  th:text="${user.getLosses()}" > </p>
+<p class = "ties"   th:text="${user.getTies()}" > </p>
 </body>
 </html>
