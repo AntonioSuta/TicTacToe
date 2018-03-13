@@ -18,6 +18,8 @@ public class TableCell {
         this.cellValue = cellValue;
     }
 
+    public int getId(){return id;}
+
     public boolean hasValue(){
         if(cellValue.equals("")){
             return false;

@@ -47,8 +47,6 @@ public class GameController {
 
     @GetMapping("/move")
     public String details(@RequestParam("rowId") int rowId, @RequestParam("columnId") int columnId, Model model) {
-        System.out.println(rowId);
-        System.out.println(columnId);
         tableRepository.readAll().get(rowId).getRow().get(columnId).setCellValue("X");
         return "redirect:/";
     }

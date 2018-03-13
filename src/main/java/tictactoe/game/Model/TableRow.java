@@ -22,8 +22,4 @@ public class TableRow {
     public ArrayList<TableCell> getRow() {
         return row;
     }
-
-    public void setRow(ArrayList<TableCell> row) {
-        this.row = row;
-    }
 }

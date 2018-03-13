@@ -9,16 +9,12 @@
 <table>
 
     <tr th:each=" tableRow: ${tableRows}">
-        <td th:each="tableCell: ${tableRow.row}">
-            <span th:if="${tableCell.hasValue()}" th:text="${tableCell.cellValue}">v</span>
-            <a th:unless="${tableCell.hasValue()}" th:href="@{/move(columnId=${tableCell.id},rowId=${tableRow.getId()})}">l</a>
+        <td th:each="tableCell: ${tableRow.getRow()}">
+            <span th:if="${tableCell.hasValue()}" th:text="${tableCell.getCellValue()}">v</span>
+            <a th:unless="${tableCell.hasValue()}" th:href="@{/move(columnId=${tableCell.getId()},rowId=${tableRow.getId()})}">l</a>
         </td>
     </tr>
 </table>
-
-
-
-
 
 </body>
 </html>
